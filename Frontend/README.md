@@ -1,5 +1,11 @@
 # React + Vite
 
+## GitHub Pages deployment
+
+The frontend is built from this directory and deployed by [the repository Pages workflow](../.github/workflows/deploy-pages.yml) on pushes to `main` or when manually dispatched from the Actions tab. The Vite base path and router basename are configured for `/LMS-Grad-Project/`; the workflow also publishes a `404.html` fallback for client-side routes.
+
+In the repository settings, choose **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

@@ -22,7 +22,7 @@ export function StudentHomePage() {
 
                 <div className="student-card-right-side">
 
-                    <img src="../../public/pictures/WhatsApp Image 2026-10-21 at 5.53.25 PM.jpeg"></img>
+                    <img src={`${import.meta.env.BASE_URL}pictures/WhatsApp Image 2026-10-21 at 5.53.25 PM.jpeg`}></img>
 
                 </div>
 
