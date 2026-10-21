@@ -1,0 +1,96 @@
+.student-home-page {
+    min-height: 100vh;
+    padding-bottom: 86px;
+}
+
+.student-card-component {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 170px;
+    margin: 20px 16px;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background: var(--color-surface);
+}
+
+.student-card-left-side {
+    min-width: 0;
+}
+
+.student-card-left-side .greeting,
+.student-card-left-side .student-id,
+.student-card-left-side .cgpa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.student-card-left-side .greeting svg {
+    color: var(--color-warning-orange);
+}
+
+.student-card-left-side .name {
+    margin: 8px 0;
+    color: var(--color-text-main);
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.student-card-left-side .cgpa {
+    margin-top: 6px;
+}
+
+.student-card-left-side .cgpa svg {
+    color: var(--color-info-blue);
+}
+
+.student-card-right-side {
+    flex: 0 0 auto;
+}
+
+.student-card-right-side img {
+    display: block;
+    width: 76px;
+    height: 76px;
+    border: 2px solid var(--color-border);
+    border-radius: 24px;
+    object-fit: cover;
+}
+
+@media (min-width: 640px) {
+    .student-home-page {
+        padding-bottom: 24px;
+    }
+
+    .student-card-component {
+        max-width: 1200px;
+        min-height: 200px;
+        margin: 28px auto;
+        padding: 32px;
+    }
+
+    .student-card-right-side img {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+    .student-card-component {
+        margin-right: 24px;
+        margin-left: 24px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .student-card-component {
+        padding: 40px;
+    }
+}

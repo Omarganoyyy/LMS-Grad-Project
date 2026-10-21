@@ -1,0 +1,77 @@
+.nav-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    padding: 0 16px;
+    background-color: var(--color-primary);
+    color: var(--color-text-main);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgb(0 0 0 / 20%);
+}
+
+.left-nav-side {
+    display: flex;
+    align-items: center;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.brand-badge {
+    font-size: 18px;
+    font-weight: 700;
+    background-color: var(--color-text-main);
+    border-radius: 6px;
+    color: var(--color-primary);
+    padding: 2px 8px;
+}
+
+.UniConnect {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.right-nav-side a {
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    transition: opacity 0.2s ease;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.right-nav-side a:hover {
+    background: rgb(255 255 255 / 12%);
+}
+
+@media (min-width: 640px) {
+    .nav-bar-container {
+        height: 68px;
+        padding: 0 24px;
+    }
+
+    .brand-badge {
+        font-size: 20px;
+    }
+
+    .UniConnect {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .nav-bar-container {
+        padding-right: max(24px, calc((100% - 1200px) / 2));
+        padding-left: max(24px, calc((100% - 1200px) / 2));
+    }
+}

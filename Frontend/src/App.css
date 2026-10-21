@@ -1,0 +1,49 @@
+:root {
+  --color-primary: #2C64C3;
+  --color-primary-hover: #2152a3;
+  --color-bg: #121212;
+  --color-surface: #1E1E1E;
+  --color-surface-elevated: #252525;
+  --color-text-main: #FFFFFF;
+  --color-text-secondary: #9CA3AF;
+  --color-success: #16A34A;
+  --color-info-blue: #3B82F6;
+  --color-warning-orange: #F97316;
+  --color-danger: #DC2626;
+  --color-border: #2D2D2D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--color-bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text-main);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-info-blue);
+  outline-offset: 3px;
+}
