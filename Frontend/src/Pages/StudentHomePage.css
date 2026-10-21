@@ -1,7 +1,67 @@
+
+:root {
+    --color-primary: #2C64C3;
+    --color-primary-hover: #2152a3;
+    --color-bg: #121212;
+    --color-surface: #1E1E1E;
+    --color-surface-elevated: #252525;
+    --color-text-main: #FFFFFF;
+    --color-text-secondary: #9CA3AF;
+    --color-success: #16A34A;
+    --color-info-blue: #3B82F6;
+    --color-warning-orange: #F97316;
+    --color-danger: #DC2626;
+    --color-border: #2D2D2D;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    background: var(--color-bg);
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text-main);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--color-info-blue);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   STUDENT HOME PAGE
+========================================= */
+
 .student-home-page {
     min-height: 100vh;
-    padding-bottom: 86px;
+    padding-bottom: 96px;
 }
+
+/* =========================================
+   STUDENT PROFILE CARD
+========================================= */
 
 .student-card-component {
     display: flex;
@@ -11,40 +71,73 @@
     min-height: 170px;
     margin: 20px 16px;
     padding: 24px;
-    border: 1px solid var(--color-border);
+
+    background: rgba(44, 100, 195, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(44, 100, 195, 0.3);
     border-radius: 16px;
-    background: var(--color-surface);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
 }
 
 .student-card-left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
     min-width: 0;
 }
 
-.student-card-left-side .greeting,
 .student-card-left-side .student-id,
 .student-card-left-side .cgpa {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
+
+    width: fit-content;
     margin: 0;
-    color: var(--color-text-secondary);
+    padding: 4px 10px;
+
+    color: var(--color-text-main);
     font-size: 0.875rem;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+}
+
+.student-card-left-side .greeting {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    width: fit-content;
+    margin: 0;
+
+    color: var(--color-text-main);
+    font-size: 0.875rem;
+
+    border-radius: 6px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 .student-card-left-side .greeting svg {
     color: var(--color-warning-orange);
+    filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.6));
 }
 
 .student-card-left-side .name {
-    margin: 8px 0;
+    margin: 0 0 10px;
     color: var(--color-text-main);
+
     font-size: clamp(1.75rem, 6vw, 2.5rem);
     font-weight: 700;
     line-height: 1.1;
 }
 
 .student-card-left-side .cgpa {
-    margin-top: 6px;
+    margin-top: 2px;
 }
 
 .student-card-left-side .cgpa svg {
@@ -52,45 +145,546 @@
 }
 
 .student-card-right-side {
+    display: flex;
     flex: 0 0 auto;
+    align-items: center;
 }
 
 .student-card-right-side img {
     display: block;
-    width: 76px;
-    height: 76px;
-    border: 2px solid var(--color-border);
-    border-radius: 24px;
+
+    width: clamp(72px, 20vw, 100px);
+    height: clamp(102px, 27vw, 136px);
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+
     object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+/* =========================================
+   LECTURES AND SECTIONS
+========================================= */
+
+.lectures-announcement-component {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    margin: 20px 16px;
+    padding: 20px;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.upper-lectures-announcement-side {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid var(--color-border);
+
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.middle-lectures-announcement-side {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 6px 0;
+}
+
+.middle-lectures-announcement-side p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0;
+
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.middle-lectures-announcement-side p.lecture-item {
+    color: var(--color-success);
+}
+
+.middle-lectures-announcement-side p.lecture-item svg {
+    flex-shrink: 0;
+    color: var(--color-success);
+    filter: drop-shadow(0 0 6px rgba(22, 163, 74, 0.6));
+}
+
+.middle-lectures-announcement-side p.section-item {
+    color: var(--color-info-blue);
+}
+
+.middle-lectures-announcement-side p.section-item svg {
+    flex-shrink: 0;
+    color: var(--color-info-blue);
+    filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.6));
+}
+
+/* Glowing Dots */
+
+.shiny-dot {
+    display: inline-block;
+    flex-shrink: 0;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+.shiny-dot.green {
+    background: radial-gradient(
+        circle at 30% 30%,
+        #ffffff,
+        var(--color-success)
+    );
+
+    box-shadow:
+        0 0 8px var(--color-success),
+        0 0 14px rgba(22, 163, 74, 0.7);
+}
+
+.shiny-dot.blue {
+    background: radial-gradient(
+        circle at 30% 30%,
+        #ffffff,
+        var(--color-info-blue)
+    );
+
+    box-shadow:
+        0 0 8px var(--color-info-blue),
+        0 0 14px rgba(59, 130, 246, 0.7);
+}
+
+/* Lecture Details Button */
+
+.lower-lectures-announcement-side {
+    display: flex;
+    justify-content: flex-start;
+
+    padding-top: 6px;
+
+    border-top: 1px solid var(--color-border);
+}
+
+.details-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 16px;
+
+    background: var(--color-surface-elevated);
+    color: var(--color-text-main);
+
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.details-btn:hover {
+    background: rgba(44, 100, 195, 0.2);
+    border-color: var(--color-primary);
+    color: #FFFFFF;
+}
+
+.details-btn:active {
+    transform: scale(0.98);
+}
+
+/* =========================================
+   QUICK ACCESS LAYOUT
+========================================= */
+
+.student-quick-access {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(0, 0.85fr);
+
+    gap: 20px;
+    align-items: stretch;
+
+    margin: 20px 16px;
+}
+
+.dashboard-section {
+    min-width: 0;
+    padding: 20px;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Headers */
+
+.dashboard-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard-section-header h2,
+.quick-access-content h2 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin: 0;
+
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.dashboard-section-header h2 svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+.section-count {
+    color: var(--color-text-secondary);
+    font-size: 0.75rem;
+}
+
+/* =========================================
+   UPCOMING DEADLINES
+========================================= */
+
+.deadline-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.deadline-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.deadline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 10px;
+
+    background: rgba(44, 100, 195, 0.15);
+    color: var(--color-info-blue);
+}
+
+.deadline-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.deadline-info h3 {
+    margin: 0 0 5px;
+
+    color: var(--color-text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+.deadline-info p {
+    margin: 0 0 7px;
+
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+}
+
+.deadline-date {
+    color: var(--color-warning-orange);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.deadline-arrow {
+    flex-shrink: 0;
+    color: var(--color-text-secondary);
+}
+
+.dashboard-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 16px;
+
+    color: var(--color-info-blue);
+    text-decoration: none;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.dashboard-action svg {
+    flex-shrink: 0;
+}
+
+.dashboard-action:hover {
+    color: var(--color-primary);
+}
+
+/* =========================================
+   ATTENDANCE AND ANNOUNCEMENTS
+========================================= */
+
+.student-quick-access-right {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+
+    min-width: 0;
+}
+
+.attendance-section,
+.announcements-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.quick-access-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 12px;
+}
+
+.attendance-icon {
+    color: var(--color-info-blue);
+    background: rgba(59, 130, 246, 0.14);
+}
+
+.announcement-icon {
+    color: var(--color-warning-orange);
+    background: rgba(249, 115, 22, 0.14);
+}
+
+.quick-access-content {
+    min-width: 0;
+}
+
+.quick-access-content h2 {
+    margin-bottom: 8px;
+}
+
+.quick-access-content p {
+    margin: 0;
+
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Quick Access Buttons */
+
+.quick-access-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: auto;
+    padding: 9px 12px;
+
+    background: var(--color-surface-elevated);
+    color: var(--color-text-main);
+
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.quick-access-button svg {
+    flex-shrink: 0;
+}
+
+.quick-access-button:hover {
+    background: rgba(44, 100, 195, 0.2);
+    border-color: var(--color-primary);
+}
+
+.details-btn:focus-visible,
+.dashboard-action:focus-visible,
+.quick-access-button:focus-visible {
+    outline: 2px solid var(--color-info-blue);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   TABLET AND DESKTOP
+========================================= */
 
 @media (min-width: 640px) {
     .student-home-page {
         padding-bottom: 24px;
     }
 
-    .student-card-component {
+    .student-card-component,
+    .lectures-announcement-component,
+    .student-quick-access {
         max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .student-card-component {
         min-height: 200px;
-        margin: 28px auto;
+        margin-top: 28px;
+        margin-bottom: 28px;
         padding: 32px;
     }
 
     .student-card-right-side img {
-        width: 96px;
-        height: 96px;
+        width: 116px;
+        height: 156px;
+    }
+
+    .lectures-announcement-component {
+        padding: 24px 28px;
     }
 }
 
+/* Tablet spacing */
+
 @media (min-width: 640px) and (max-width: 1024px) {
-    .student-card-component {
+    .student-card-component,
+    .lectures-announcement-component,
+    .student-quick-access {
         margin-right: 24px;
         margin-left: 24px;
     }
+
+    .student-quick-access {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 0.9fr);
+
+        gap: 16px;
+    }
+
+    .student-quick-access-right {
+        gap: 16px;
+    }
+
+    .dashboard-section {
+        padding: 18px;
+    }
 }
+
+/* Desktop profile spacing */
 
 @media (min-width: 1025px) {
     .student-card-component {
         padding: 40px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 639px) {
+    .student-quick-access {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .student-quick-access-right {
+        grid-template-rows: auto auto;
+        gap: 16px;
+    }
+
+    .dashboard-section {
+        padding: 18px;
+    }
+
+    .deadline-item {
+        gap: 10px;
+    }
+
+    .deadline-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .dashboard-section-header h2 {
+        font-size: 0.95rem;
+    }
+}
+
+/* Respect reduced motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

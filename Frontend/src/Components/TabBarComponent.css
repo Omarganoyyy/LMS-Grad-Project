@@ -11,20 +11,22 @@
 }
 
 .tab-bar-container ul {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    /* Forces exactly 5 equal columns so the 3rd item is always in the absolute middle */
+    grid-template-columns: repeat(5, 1fr);
     align-items: center;
     list-style: none;
     height: 100%;
     max-width: 640px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 8px;
 }
 
 .tab-bar-container li {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .tab-bar-container li a {
@@ -32,14 +34,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
     text-decoration: none;
     color: var(--color-text-secondary);
-    font-size: 0.75rem;
+    font-size: 0.68rem;
+    /* Scaled down slightly to prevent overflow on small phones */
     font-weight: 500;
-    padding: 6px 12px;
+    padding: 4px 2px;
     border-radius: 8px;
+    width: 100%;
     transition: background-color 0.2s ease, color 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+    /* Prevents text from breaking into two lines */
 }
 
 .tab-bar-container li a:hover,
@@ -50,8 +57,10 @@
 
 .tab-bar-container li a svg {
     color: var(--color-info-blue);
+    flex-shrink: 0;
 }
 
+/* Tablet & Desktop Adjustments */
 @media (min-width: 640px) {
     .tab-bar-container {
         position: static;
@@ -62,16 +71,14 @@
     }
 
     .tab-bar-container ul {
-        justify-content: center;
-        gap: 8px;
-        max-width: 1200px;
+        max-width: 700px;
         min-height: 64px;
+        gap: 12px;
     }
 
     .tab-bar-container li a {
-        flex-direction: column;
-        gap: 4px;
-        padding: 8px 16px;
+        font-size: 0.8rem;
+        padding: 8px 12px;
         color: var(--color-text-secondary);
     }
 
