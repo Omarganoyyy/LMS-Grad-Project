@@ -33,8 +33,20 @@ export function StudentProfilePage() {
                 {/* Contact Information Card */}
                 <div className="profile-contact-info">
                     <p className="contact-info-title"><Mail size={18} /> Contact Info</p>
-                    <p><Mail size={16} /> <strong>Email:</strong> omarganoyyy@gmail.com</p>
-                    <p><GraduationCap size={16} /> <strong>Academic Email:</strong> omar.ahmed.2005@gmail.edu.com</p>
+                    <p className="contact-email-row">
+                        <Mail size={16} />
+                        <span className="contact-email-content">
+                            <strong>Email</strong>
+                            <span className="contact-email-address">omarganoyyy@gmail.com</span>
+                        </span>
+                    </p>
+                    <p className="contact-email-row academic-email-row">
+                        <GraduationCap size={16} />
+                        <span className="contact-email-content">
+                            <strong>Academic Email</strong>
+                            <span className="contact-email-address">omar.ahmed.2005@gmail.edu.com</span>
+                        </span>
+                    </p>
                 </div>
 
                 {/* Update Info & Logout Action Card */}
