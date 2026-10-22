@@ -1,0 +1,247 @@
+/* =========================================
+   STUDENT PROFILE CONTAINER & LAYOUT
+========================================= */
+
+.student-profile-page {
+    min-height: 100vh;
+}
+
+.student-profile-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    min-height: calc(100vh - 60px);
+    margin: 0 auto;
+    padding: 24px 16px 104px;
+    color: var(--color-text-main);
+}
+
+/* =========================================
+   STUDENT DETAILS CARD (Glassy Blue Header)
+========================================= */
+
+.student-dentails-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 0 16px 52px;
+    overflow: visible;
+    color: var(--color-text-main);
+    text-align: center;
+    
+    /* Modern Glassy Blue Look matching your Theme */
+    background: rgba(44, 100, 195, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(44, 100, 195, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    
+    grid-column: 1 / -1;
+}
+
+.student-dentails-card .student-name,
+.student-dentails-card .faculty,
+.student-dentails-card .major {
+    margin: 0;
+}
+
+.student-dentails-card .student-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.student-dentails-card .faculty,
+.student-dentails-card .major {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 6px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Preserved Photo Position with Glow Effect */
+.student-dentails-card img {
+    position: absolute;
+    bottom: -40px;
+    width: 92px;
+    height: 92px;
+    border: 3px solid rgba(44, 100, 195, 0.6);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    background: var(--color-surface);
+}
+
+/* =========================================
+   PROFILE SECTIONS (Personal, Contact, Logout)
+========================================= */
+
+.profile-personal-info,
+.profile-contact-info,
+.profile-update-info {
+    min-width: 0;
+    padding: 24px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-personal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 36px; /* Offset to clear the overlapping profile image nicely */
+}
+
+.profile-contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-top: 36px;
+}
+
+.profile-personal-info p,
+.profile-contact-info p,
+.profile-update-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    overflow-wrap: anywhere;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.profile-personal-info p svg,
+.profile-contact-info p svg {
+    color: var(--color-info-blue);
+    flex-shrink: 0;
+}
+
+/* Unified Header Titles for Both Cards */
+.profile-personal-info .personal-info-title,
+.profile-contact-info .contact-info-title,
+.profile-update-info .update-info {
+    color: var(--color-text-main);
+    font-size: 1.05rem;
+    font-weight: 650;
+}
+
+.profile-personal-info .personal-info-title,
+.profile-contact-info .contact-info-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.profile-personal-info .personal-info-title svg,
+.profile-contact-info .contact-info-title svg {
+    color: var(--color-info-blue);
+}
+
+.profile-update-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    grid-column: 1 / -1;
+}
+
+/* Modern Danger Logout Button */
+.profile-update-info .logout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 10px 18px;
+    color: var(--color-text-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    background: var(--color-danger);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.profile-update-info .logout:hover {
+    background: #b91c1c;
+}
+
+.profile-update-info .logout:active {
+    transform: scale(0.98);
+}
+
+.profile-update-info .logout:focus-visible {
+    outline: 2px solid var(--color-text-main);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS (Tablet & Desktop)
+========================================= */
+
+@media (min-width: 640px) {
+    .student-profile-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        padding: 32px 24px 48px;
+        min-height: calc(100vh - 68px);
+    }
+
+    .student-dentails-card {
+        min-height: 220px;
+        padding: 32px 24px 56px;
+    }
+
+    .student-dentails-card .student-name {
+        font-size: 1.75rem;
+    }
+
+    .profile-personal-info {
+        margin-top: 40px;
+    }
+
+    .profile-contact-info {
+        margin-top: 40px;
+    }
+
+    .profile-update-info {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1025px) {
+    .student-profile-container {
+        gap: 24px;
+        padding: 40px 24px 56px;
+    }
+
+    .profile-personal-info,
+    .profile-contact-info,
+    .profile-update-info {
+        padding: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .profile-update-info .logout {
+        transition: none;
+    }
+}
